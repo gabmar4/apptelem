@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/nota_1"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:foregroundGravity="left"
+        android:gravity="left"
+        android:hint="Nota examen 1"
+        android:inputType="numberDecimal"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asignatura" />
+
+    <EditText
+        android:id="@+id/nota_2"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Nota examen 2"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/nota_1"
+        app:layout_constraintStart_toStartOf="@+id/nota_1"
+        app:layout_constraintTop_toBottomOf="@+id/nota_1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="143dp"
+        android:layout_height="63dp"
+        android:gravity="center|center_horizontal"
+        android:text="Calculadora Notas"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#4CAF50"
+        android:textColorHighlight="#00BCD4"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <TextView
+        android:id="@+id/anyade_asig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Añadir asignatura y calificaciones"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/asignatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Asignatura"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/anyade_asig"
+        app:layout_constraintStart_toStartOf="@+id/anyade_asig"
+        app:layout_constraintTop_toBottomOf="@+id/anyade_asig" />
+
+    <EditText
+        android:id="@+id/p_nota1"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="% 1er examen"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/nota_1"
+        app:layout_constraintTop_toBottomOf="@+id/asignatura" />
+
+    <EditText
+        android:id="@+id/p_nota2"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="% 2do examen"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/nota_2"
+        app:layout_constraintTop_toBottomOf="@+id/p_nota1" />
+
+    <EditText
+        android:id="@+id/nota_p"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Nota prácticas"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/nota_2"
+        app:layout_constraintStart_toStartOf="@+id/nota_2"
+        app:layout_constraintTop_toBottomOf="@+id/nota_2" />
+
+    <EditText
+        android:id="@+id/p_notap"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="% prácticas"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/nota_p"
+        app:layout_constraintTop_toBottomOf="@+id/p_nota2" />
+
+    <EditText
+        android:id="@+id/nota_ot"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Otra nota"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/nota_p"
+        app:layout_constraintTop_toBottomOf="@+id/nota_p" />
+
+    <EditText
+        android:id="@+id/p_nota_ot"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="%"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/nota_ot"
+        app:layout_constraintTop_toBottomOf="@+id/p_notap" />
+
+    <Button
+        android:id="@+id/button_sig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Siguiente"
+        app:layout_constraintEnd_toEndOf="@+id/p_nota_ot"
+        app:layout_constraintStart_toStartOf="@+id/p_nota_ot"
+        app:layout_constraintTop_toBottomOf="@+id/p_nota_ot" />
+
+    <Button
+        android:id="@+id/button_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nueva Asignatura"
+        app:layout_constraintEnd_toEndOf="@+id/nota_ot"
+        app:layout_constraintStart_toStartOf="@+id/nota_ot"
+        app:layout_constraintTop_toBottomOf="@+id/nota_ot" />
+
+</android.support.constraint.ConstraintLayout>
