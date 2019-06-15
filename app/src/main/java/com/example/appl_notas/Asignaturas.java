@@ -18,7 +18,8 @@ public class Asignaturas extends AppCompatActivity {
         String asignatura=b.getString("Nombre asignatura :");
         int nota_1=b.getInt("Nota :");
 
-        ((TextView) findViewById(R.id.texto_asig)).setText(asignatura+"con media: "+nota_1);
+
+        ((TextView) findViewById(R.id.texto_asig)).setText(asignatura.toUpperCase()+" con media: "+nota_1);
 
 
     }
