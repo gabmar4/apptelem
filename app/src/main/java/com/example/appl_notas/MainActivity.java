@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        double nota_1=0;
         final Button  button_sig =(Button) findViewById(R.id.button_sig);
 
         button_sig.setOnClickListener(new View.OnClickListener(){
@@ -36,16 +36,18 @@ public class MainActivity extends AppCompatActivity {
                     etasignatura.setError("No has introducido el nombre de la asignatura");
                     return;
                 }
+                double nota_1=0,nota_2=0,nota_p=0,nota_ot=0;
+                int pnota_1=0,pnota_2 =0,pnota_p =0,pnota_ot =0;
 
-                double nota_1 = Double.parseDouble(((EditText) findViewById(R.id.nota_1) ).getText().toString() ) ;
-                double nota_2 = Double.parseDouble(((EditText) findViewById(R.id.nota_2) ).getText().toString() ) ;
-                double nota_p = Double.parseDouble(((EditText) findViewById(R.id.nota_p) ).getText().toString() ) ;
-                double nota_ot = Double.parseDouble(((EditText) findViewById(R.id.nota_ot) ).getText().toString() ) ;
+                nota_1 = Double.parseDouble(((EditText) findViewById(R.id.nota_1) ).getText().toString() ) ;
+                nota_2 = Double.parseDouble(((EditText) findViewById(R.id.nota_2) ).getText().toString() ) ;
+                nota_p = Double.parseDouble(((EditText) findViewById(R.id.nota_p) ).getText().toString() ) ;
+                nota_ot = Double.parseDouble(((EditText) findViewById(R.id.nota_ot) ).getText().toString() ) ;
 
-                int pnota_1=Integer.valueOf(((EditText) findViewById(R.id.p_nota1)).getText().toString());
-                int pnota_2=Integer.valueOf(((EditText) findViewById(R.id.p_nota2)).getText().toString());
-                int pnota_p=Integer.valueOf(((EditText) findViewById(R.id.p_notap)).getText().toString());
-                int pnota_ot=Integer.valueOf(((EditText) findViewById(R.id.p_nota_ot)).getText().toString());
+                pnota_1=Integer.valueOf(((EditText) findViewById(R.id.p_nota1)).getText().toString());
+                pnota_2=Integer.valueOf(((EditText) findViewById(R.id.p_nota2)).getText().toString());
+                pnota_p=Integer.valueOf(((EditText) findViewById(R.id.p_notap)).getText().toString());
+                pnota_ot=Integer.valueOf(((EditText) findViewById(R.id.p_nota_ot)).getText().toString());
 
 /*                if(nota_ot.isEmpty()||nota_ot.length()==0||nota_ot.equals("")){
                     nota_ot=0;
