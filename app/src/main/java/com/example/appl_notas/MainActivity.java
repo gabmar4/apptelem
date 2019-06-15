@@ -51,14 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 b.putInt("Nota1p" ,pnota_1);
                 b.putInt("Nota2p" ,pnota_2);
                 b.putInt("Notapp" ,pnota_p);
+
                 b.putInt("Notaotp" ,pnota_ot);
 
                 TextView error_p=(TextView) findViewById(R.id.Error_porcentaje);
 
                 intento.putExtras(b);
 
-                if((nota_1>10)&&(nota_2>10)&&(nota_p>10)&&(nota_ot>10)){
-                    error_p.setText("La nota no puede ser mayor de 10");
+                if(((nota_1>10)||(nota_2>10))||((nota_p>10)||(nota_ot>10))){
+                    error_p.setText("Una de las notas es mayor que 10.");
 
                     try {
                         Thread.sleep(1000);
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intento);
                 }
                 else{
-                    error_p.setText("El porcentaje de las notas tiene que ser igual a 100");
+                    error_p.setText("El porcentaje total de las notas tiene que ser igual a 100");
 
                     try {
                         Thread.sleep(1000);
