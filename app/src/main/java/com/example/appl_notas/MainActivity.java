@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
                 Bundle b = new Bundle();
 
                 String asignatura = ((EditText) findViewById(R.id.asignatura)).getText().toString();
-                int nota_1 = Integer.valueOf(((EditText) findViewById(R.id.nota_1) ).getText().toString() ) ;
-                int nota_2 = Integer.valueOf(((EditText) findViewById(R.id.nota_2) ).getText().toString() ) ;
-                int nota_p = Integer.valueOf(((EditText) findViewById(R.id.nota_p) ).getText().toString() ) ;
-                int nota_ot = Integer.valueOf(((EditText) findViewById(R.id.nota_ot) ).getText().toString() ) ;
+                double nota_1 = Double.parseDouble(((EditText) findViewById(R.id.nota_1) ).getText().toString() ) ;
+                double nota_2 = Double.parseDouble(((EditText) findViewById(R.id.nota_2) ).getText().toString() ) ;
+                double nota_p = Double.parseDouble(((EditText) findViewById(R.id.nota_p) ).getText().toString() ) ;
+                double nota_ot = Double.parseDouble(((EditText) findViewById(R.id.nota_ot) ).getText().toString() ) ;
 
                 int pnota_1=Integer.valueOf(((EditText) findViewById(R.id.p_nota1)).getText().toString());
                 int pnota_2=Integer.valueOf(((EditText) findViewById(R.id.p_nota2)).getText().toString());
@@ -43,45 +43,49 @@ public class MainActivity extends AppCompatActivity {
                 int sum=pnota_1+pnota_2+pnota_p+pnota_ot;
 
                 b.putString("Nombre asignatura :", asignatura);
-                b.putInt("Nota1" ,nota_1);
-/*                b.putInt("Nota2" ,nota_2);
-                b.putInt("Notap" ,nota_p);
-                b.putInt("Notaot" ,nota_ot);
+                b.putDouble("Nota1" ,nota_1);
+                b.putDouble("Nota2" ,nota_2);
+                b.putDouble("Notap" ,nota_p);
+                b.putDouble("Notaot" ,nota_ot);
 
                 b.putInt("Nota1p" ,pnota_1);
                 b.putInt("Nota2p" ,pnota_2);
                 b.putInt("Notapp" ,pnota_p);
                 b.putInt("Notaotp" ,pnota_ot);
-*/
+
                 TextView error_p=(TextView) findViewById(R.id.Error_porcentaje);
 
                 intento.putExtras(b);
-/*
+
                 if((nota_1>10)&&(nota_2>10)&&(nota_p>10)&&(nota_ot>10)){
                     error_p.setText("La nota no puede ser mayor de 10");
-                    finish();
 
+                    try {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }//retardo para poder leer el mensaje
+
+                    finish();
                     startActivity(getIntent());
 
                 }
-*/
+
                 if(sum==100) {
                     startActivity(intento);
                 }
                 else{
                     error_p.setText("El porcentaje de las notas tiene que ser igual a 100");
 
-                    try
-                    {
+                    try {
                         Thread.sleep(1000);
                     }
-                    catch(InterruptedException ex)
-                    {
+                    catch(InterruptedException ex) {
                         Thread.currentThread().interrupt();
-                    }
+                    }//retardo para poder leer el mensaje
 
                     finish();
-
                     startActivity(getIntent());
                 }
             }
