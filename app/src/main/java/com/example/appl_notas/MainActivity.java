@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         final TextView te_contador =(TextView) findViewById(R.id.te_contador);
 
-        int contador=1;
+        final int contador=1;
 
         button_sig.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View v) {
@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 double sum=pnota_1+pnota_2+pnota_p+pnota_ot;
                 intento.putExtras(b);
 
-                te_contador.setText("Hay "+(++contador)+" asignatura(s)");
 
                 if(((nota_1>10)||(nota_2>10))||((nota_p>10)||(nota_ot>10))){
                     error_p.setText("Una de las notas es mayor que 10.");
@@ -121,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
         button_rst.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
-                contador +=1;
                 finish();
                 startActivity(getIntent());
             }
