@@ -13,19 +13,25 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        double nota_1=0;
         final Button  button_sig =(Button) findViewById(R.id.button_sig);
+        final Button  button_new =(Button) findViewById(R.id.button_new);
+        final Button  button_rst =(Button) findViewById(R.id.button_rst);
+
+        final TextView te_contador =(TextView) findViewById(R.id.te_contador);
+
+        int contador=1;
 
         button_sig.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View v) {
 
-//podria usar un bucle if para comprobar que se cumplen los porcentajes
                 Intent intento = new Intent(MainActivity.this, Asignaturas.class);
                 Bundle b = new Bundle();
 
@@ -77,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 double sum=pnota_1+pnota_2+pnota_p+pnota_ot;
                 intento.putExtras(b);
 
+                te_contador.setText("Hay "+(++contador)+" asignatura(s)");
+
                 if(((nota_1>10)||(nota_2>10))||((nota_p>10)||(nota_ot>10))){
                     error_p.setText("Una de las notas es mayor que 10.");
 
@@ -109,7 +117,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        button_rst.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                contador +=1;
+                finish();
+                startActivity(getIntent());
+            }
+        });
+
     }
+
+
 
     double ParseDouble (String strNumber){
         if(strNumber !=null && strNumber.length()>0){
