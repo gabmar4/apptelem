@@ -7,7 +7,7 @@
     tools:context=".Asignaturas">
 
     <TextView
-        android:id="@+id/media_co2"
+        android:id="@+id/media_co"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -24,7 +24,7 @@
         android:text="Media no calculada"
         app:layout_constraintEnd_toEndOf="@+id/text_notas"
         app:layout_constraintStart_toStartOf="@+id/text_notas"
-        app:layout_constraintTop_toBottomOf="@+id/media_co2" />
+        app:layout_constraintTop_toBottomOf="@+id/media_co" />
 
     <TextView
         android:id="@+id/media_cm"
@@ -165,4 +165,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/texto_asig"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_error"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="#F80B0B"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/text_notas"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="@+id/texto_asig"
+        app:layout_constraintTop_toBottomOf="@+id/media_cd" />
 </android.support.constraint.ConstraintLayout>
