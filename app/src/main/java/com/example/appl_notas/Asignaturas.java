@@ -2,20 +2,22 @@ package com.example.appl_notas;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Asignaturas extends AppCompatActivity {
     Bundle b;
+
+
    @Override
    protected void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignaturas);
-
        b=getIntent().getExtras();
-        String asignatura=b.getString("Nombre asignatura :");
+
+       Bundle asign=getIntent().getExtras();
+
+       String asignatura=asign.getString("Nombre asignatura :");
+
         double nota_1=b.getDouble("Nota1");
         double nota_2=b.getDouble("Nota2");
         double nota_p=b.getDouble("Notap");
@@ -28,7 +30,7 @@ public class Asignaturas extends AppCompatActivity {
 //el porcentaje de cada nota es un double ahora
         double media1=(nota_1*p_nota1+nota_2*p_nota2+nota_p*p_notap+nota_ot*p_nota_ot)/100;
 
-        ((TextView) findViewById(R.id.media)).setText(asignatura.toUpperCase()+" con media: "+media1);
+        ((TextView) findViewById(R.id.media_at)).setText("Media: "+media1);
 
 
     }

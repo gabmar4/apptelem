@@ -30,14 +30,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        Spinner spinner=findViewById(R.id.spinner1);
+       final  Spinner spinner=findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.asignaturas,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-  //      Intent asigIntent=new Intent(MainActivity.this,Asignaturas.class);
-   //     asigIntent=putExtraData("asignatura",);
+
 
 
         button_sig.setOnClickListener(new View.OnClickListener(){
@@ -46,13 +45,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Intent intento = new Intent(MainActivity.this, Asignaturas.class);
                 Bundle b = new Bundle();
 
-                EditText etasignatura=(EditText) findViewById(R.id.asignatura_ele);
-                String asignatura = etasignatura.getText().toString();
-
-                if(TextUtils.isEmpty(asignatura)){
-                    etasignatura.setError("No has introducido el nombre de la asignatura");
-                    return;
-                }
+                String asignaturaspinner=spinner.getSelectedItem().toString();
 
                 EditText etnota_1=(EditText) findViewById(R.id.nota_1);
                 EditText etnota_2=(EditText) findViewById(R.id.nota_2);
@@ -78,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-                b.putString("Nombre asignatura :", asignatura);
+                b.putString("Nombre asignatura :", asignaturaspinner);
                 b.putDouble("Nota1" ,nota_1);
                 b.putDouble("Nota2" ,nota_2);
                 b.putDouble("Notap" ,nota_p);
