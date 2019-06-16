@@ -28,7 +28,7 @@ public class Asignaturas extends AppCompatActivity {
 //el porcentaje de cada nota es un double ahora
         double media1=(nota_1*p_nota1+nota_2*p_nota2+nota_p*p_notap+nota_ot*p_nota_ot)/100;
 
-        ((TextView) findViewById(R.id.texto_asig)).setText(asignatura.toUpperCase()+" con media: "+media1);
+        ((TextView) findViewById(R.id.media)).setText(asignatura.toUpperCase()+" con media: "+media1);
 
 
     }

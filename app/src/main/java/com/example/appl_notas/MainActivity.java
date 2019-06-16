@@ -7,27 +7,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         final Button  button_sig =(Button) findViewById(R.id.button_sig);
-        final Button  button_new =(Button) findViewById(R.id.button_new);
         final Button  button_rst =(Button) findViewById(R.id.button_rst);
 
-        final TextView te_contador =(TextView) findViewById(R.id.te_contador);
 
-        final int contador=1;
+
+        Spinner spinner=findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.asignaturas,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+  //      Intent asigIntent=new Intent(MainActivity.this,Asignaturas.class);
+   //     asigIntent=putExtraData("asignatura",);
+
 
         button_sig.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View v) {
@@ -35,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intento = new Intent(MainActivity.this, Asignaturas.class);
                 Bundle b = new Bundle();
 
-                EditText etasignatura=(EditText) findViewById(R.id.asignatura);
+                EditText etasignatura=(EditText) findViewById(R.id.asignatura_ele);
                 String asignatura = etasignatura.getText().toString();
 
                 if(TextUtils.isEmpty(asignatura)){
@@ -127,7 +138,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void onItemSelected(AdapterView<?> p ,View v,int position,long id){
+        String text=p.getItemAtPosition(position).toString();
+        TextView asignatura_ele=(TextView)findViewById(R.id.asignatura_ele);
+        asignatura_ele.setText("Has seleccionado la asignatura: "+text);
+    }
 
+    public void onNothingSelected(AdapterView<?> p){
+        TextView asignatura_ele=(TextView)findViewById(R.id.asignatura_ele);
+        asignatura_ele.setText("Elije una asignatura");
+
+    }
 
     double ParseDouble (String strNumber){
         if(strNumber !=null && strNumber.length()>0){

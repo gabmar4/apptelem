@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">appl_notas</string>
+
+    <string-array name="asignaturas">
+        <item>Aplicaciones Telemáticas</item>
+        <item>Radiocomunicaciones</item>
+        <item>Lineas</item>
+        <item>Comunicaciones Multimedia</item>
+        <item>Comunicaciones Ópticas</item>
+        <item>Comunicaciones Digitales</item>
+    </string-array>
 </resources>
