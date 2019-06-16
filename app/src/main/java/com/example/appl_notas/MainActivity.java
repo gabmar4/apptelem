@@ -16,7 +16,6 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -25,11 +24,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        conexionSQLiteHelper conn=new conexionSQLiteHelper(this,"bd_datos",null,1); //creo base de datos para las notas
-
         final Button  button_sig =(Button) findViewById(R.id.button_sig);
         final Button  button_rst =(Button) findViewById(R.id.button_rst);
-        final Button  button_anyade=(Button) findViewById(R.id.button_anyade);
 
 
        final  Spinner spinner=findViewById(R.id.spinner1);
@@ -41,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        button_anyade.setOnClickListener(new View.OnClickListener(){
+        button_sig.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View v) {
 
                 Intent intento = new Intent(MainActivity.this, Asignaturas.class);
@@ -90,8 +86,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 intento.putExtras(b);
 
-                finish();
-                startActivity(getIntent());
 
 
                 if(((nota_1>10)||(nota_2>10))||((nota_p>10)||(nota_ot>10))){
@@ -109,7 +103,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 }
                 else {
-                    if (sum != 100) {
+                    if (sum == 100) {
+                        startActivity(intento);
+                    }
+                    else{
                         error_p.setText("El porcentaje total de las notas tiene que ser igual a 100 y no a  "+sum+ ".");
 
                         try {
@@ -125,15 +122,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        button_sig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intento = new Intent(MainActivity.this, Asignaturas.class);
-                startActivity(intento);
-            }
-
-        });
-
         button_rst.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
@@ -143,7 +131,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
     }
-
     public void onItemSelected(AdapterView<?> p ,View v,int position,long id){
         String text=p.getItemAtPosition(position).toString();
         TextView asignatura_ele=(TextView)findViewById(R.id.asignatura_ele);
