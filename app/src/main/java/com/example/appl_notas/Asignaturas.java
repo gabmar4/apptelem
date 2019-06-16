@@ -15,8 +15,8 @@ public class Asignaturas extends AppCompatActivity {
        b=getIntent().getExtras();
 
        Bundle asign=getIntent().getExtras();
-
-       String asignatura=asign.getString("Nombre asignatura :");
+       String asignatura="";
+       asignatura=asign.getString("Nombre asignatura :");
 
         double nota_1=b.getDouble("Nota1");
         double nota_2=b.getDouble("Nota2");

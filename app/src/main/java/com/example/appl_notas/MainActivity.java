@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        button_sig.setOnClickListener(new View.OnClickListener(){
+        button_anyade.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View v) {
 
                 Intent intento = new Intent(MainActivity.this, Asignaturas.class);
@@ -85,7 +85,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 TextView error_p=(TextView) findViewById(R.id.Error_porcentaje);
 
                 double sum=pnota_1+pnota_2+pnota_p+pnota_ot;
+
                 intento.putExtras(b);
+
+                finish();
+                startActivity(getIntent());
 
 
                 if(((nota_1>10)||(nota_2>10))||((nota_p>10)||(nota_ot>10))){
@@ -97,91 +101,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     catch(InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }//retardo para poder leer el mensaje
-                    Intent intent1=getIntent();
+
                     finish();
-                    startActivity(intent1);
-
-                }
-                else {
-                    if (sum == 100) {
-                        startActivity(intento);
-                    } else {
-                        error_p.setText("El porcentaje total de las notas tiene que ser igual a 100 y no a  "+sum+ ".");
-
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }//retardo para poder leer el mensaje
-
-                        finish();
-                        startActivity(getIntent());
-                    }
-                }
-            }
-        });
-
-        button_anyade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intento = new Intent(MainActivity.this, Asignaturas.class);
-                Bundle b = new Bundle();
-
-                String asignaturaspinner=spinner.getSelectedItem().toString();
-
-                EditText etnota_1=(EditText) findViewById(R.id.nota_1);
-                EditText etnota_2=(EditText) findViewById(R.id.nota_2);
-                EditText etnota_p=(EditText) findViewById(R.id.nota_p);
-                EditText etnota_ot=(EditText) findViewById(R.id.nota_ot);
-                EditText etpnota_1=(EditText) findViewById(R.id.p_nota1);
-                EditText etpnota_2=(EditText) findViewById(R.id.p_nota2);
-                EditText etpnota_p=(EditText) findViewById(R.id.p_notap);
-                EditText etpnota_ot=(EditText) findViewById(R.id.p_nota_ot);
-
-
-
-                double nota_1 = ParseDouble(etnota_1.getText().toString());
-                double nota_2 = ParseDouble(etnota_2.getText().toString() ) ;
-                double nota_p = ParseDouble(etnota_p.getText().toString() ) ;
-                double nota_ot = ParseDouble(etnota_ot.getText().toString() ) ;
-
-                double pnota_1=ParseDouble(etpnota_1.getText().toString());
-                double pnota_2=ParseDouble(etpnota_2.getText().toString());
-                double pnota_p=ParseDouble(etpnota_p.getText().toString());
-                double pnota_ot=ParseDouble(etpnota_ot.getText().toString());
-
-
-
-
-                b.putString("Nombre asignatura :", asignaturaspinner);
-                b.putDouble("Nota1" ,nota_1);
-                b.putDouble("Nota2" ,nota_2);
-                b.putDouble("Notap" ,nota_p);
-                b.putDouble("Notaot" ,nota_ot);
-
-                b.putDouble("Nota1p" ,pnota_1);
-                b.putDouble("Nota2p" ,pnota_2);
-                b.putDouble("Notapp" ,pnota_p);
-                b.putDouble("Notaotp" ,pnota_ot);
-
-                TextView error_p=(TextView) findViewById(R.id.Error_porcentaje);
-
-                double sum=pnota_1+pnota_2+pnota_p+pnota_ot;
-                intento.putExtras(b);
-
-
-                if(((nota_1>10)||(nota_2>10))||((nota_p>10)||(nota_ot>10))){
-                    error_p.setText("Una de las notas es mayor que 10.");
-
-                    try {
-                        Thread.sleep(1000);
-                    }
-                    catch(InterruptedException ex) {
-                        Thread.currentThread().interrupt();
-                    }//retardo para poder leer el mensaje
-                    Intent intent1=getIntent();
-                    finish();
-                    startActivity(intent1);
+                    startActivity(getIntent());
 
                 }
                 else {
@@ -198,9 +120,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         startActivity(getIntent());
                     }
                 }
-
-
             }
+        });
+
+        button_sig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intento = new Intent(MainActivity.this, Asignaturas.class);
+
+                startActivity(intento);
+            }
+
         });
 
         button_rst.setOnClickListener(new View.OnClickListener(){
