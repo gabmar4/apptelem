@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        conexionSQLiteHelper conn=new conexionSQLiteHelper(this,"bd_datos",null,1); //creo base de datos para las notas
+
         final Button  button_sig =(Button) findViewById(R.id.button_sig);
         final Button  button_rst =(Button) findViewById(R.id.button_rst);
         final Button  button_anyade=(Button) findViewById(R.id.button_anyade);
@@ -127,7 +129,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 Intent intento = new Intent(MainActivity.this, Asignaturas.class);
-
                 startActivity(intento);
             }
 
